@@ -247,7 +247,8 @@
       .contacto-form { grid-template-columns: 1fr; }
       .form-group.full { grid-column: 1; }
       .form-submit { grid-column: 1; }
-      footer { grid-template-columns: 1fr; justify-items: center; gap: 1rem; padding: 2rem 1.5rem; }
+      footer { grid-template-columns: 1fr; justify-items: center; gap: 1rem; padding: 2rem 1.5rem; margin-bottom: 0; }
+      body { padding-bottom: 0 !important; }
       .footer-logo { justify-self: center; }
       .footer-copy { justify-self: center; text-align: center; }
       .divider { padding: 0 2rem; }
@@ -958,12 +959,13 @@
     function toggleMenu() {
       document.getElementById('hamburger').classList.toggle('open');
       document.getElementById('mobile-menu').classList.toggle('open');
-      document.body.style.overflow = document.getElementById('mobile-menu').classList.contains('open') ? 'hidden' : '';
+      // dropdown menu - no overflow lock needed
     }
     function closeMenu() {
       document.getElementById('hamburger').classList.remove('open');
       document.getElementById('mobile-menu').classList.remove('open');
       document.body.style.overflow = '';
+      document.body.style.paddingBottom = '';
     }
   </script>
 </body>
