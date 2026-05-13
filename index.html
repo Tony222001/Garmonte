@@ -21,11 +21,11 @@
       --gold:      #333333;
       --gold-l:    #555555;
     }
- 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
- 
+
     /* ── NAV ── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.2rem 4rem; background: #000000; border-bottom: 1px solid rgba(255,255,255,0.1); }
     nav.scrolled { background: #000000; }
@@ -37,7 +37,7 @@
     .nav-right { justify-self: start; margin-left: 2.5rem; display: flex; align-items: center; }
     .nav-center { display: flex; align-items: center; justify-content: center; }
     nav a img { height: 52px; width: auto; filter: invert(1); }
- 
+
     /* ── HERO ── */
     #hero { position: relative; height: 100vh; min-height: 700px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8rem; overflow: hidden; background: #1a1a1a; }
     .hero-bg { position: absolute; inset: 0; overflow: hidden; }
@@ -52,11 +52,11 @@
     .hero-dot.active { background: #fff; }
     .hero-ring { display: none; }
     #hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.05) 45%, transparent 100%); pointer-events: none; z-index: 1; }
- 
- 
+
+
     .hero-content { position: relative; text-align: center; z-index: 2; animation: fadeUp 1.2s ease both; display: inline-flex; flex-direction: column; align-items: center; gap: 1.5rem; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
- 
+
     .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 1s 0.3s ease both; }
     .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem,10vw,8rem); font-weight: 300; line-height: 0.95; letter-spacing: -0.01em; color: var(--green); opacity: 0; animation: fadeUp 1s 0.5s ease both; }
     .hero-title em { font-style: italic; color: var(--gold); }
@@ -71,23 +71,23 @@
     .hero-sub { margin-top: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; letter-spacing: 0.02em; color: #fff; line-height: 1.1; opacity: 0; animation: fadeUp 1s 0.4s ease both; }
     .hero-cta { margin-top: 0; display: inline-block; padding: 0.8rem 2.8rem; background: #fff; border: 1px solid #fff; color: #1a1a1a; font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; text-decoration: none; transition: background 0.3s, color 0.3s; opacity: 0; animation: fadeUp 1s 0.65s ease both; }
     .hero-cta:hover { background: transparent; color: #fff; border-color: rgba(255,255,255,0.6); }
- 
- 
+
+
     /* ── DIVIDER ── */
     .divider { display: flex; align-items: center; gap: 1.5rem; padding: 0 4rem; margin: 5rem auto; max-width: 1200px; }
     .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #cccccc; }
     .divider-icon { width: 40px; height: 40px; border: 1px solid #aaaaaa; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #666; flex-shrink: 0; }
- 
+
     /* ── SECTIONS ── */
     section { padding: 7rem 4rem; }
     .section-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 1rem; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); font-weight: 300; line-height: 1.1; color: var(--green); }
     .section-title em { font-style: italic; color: var(--gold); }
- 
+
     /* ── QUIÉNES SOMOS ── */
     #nosotros { background: var(--bg-alt); position: relative; overflow: hidden; }
     #nosotros::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(45,74,34,0.06) 0%, transparent 70%); pointer-events: none; }
- 
+
     .nosotros-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
     .nosotros-text p { margin-top: 2rem; font-size: 0.95rem; line-height: 1.9; color: var(--text-mid); font-weight: 300; }
     .nosotros-text p + p { margin-top: 1.2rem; }
@@ -102,19 +102,19 @@
     .historia-nav-btn:hover { border-color: var(--text); background: var(--text); color: #fff; }
     .historia-nav-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
     .nosotros-right { position: relative; padding-top: 2.5rem; }
- 
+
     .stat-block { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 0; }
     .stat { background: #fff; padding: 2rem 1.5rem; border: 1px solid var(--border); transition: border-color 0.3s, box-shadow 0.3s; }
     .stat:hover { border-color: #cccccc; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
     .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--green); line-height: 1; }
     .stat-label { margin-top: 0.5rem; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
- 
+
     .river-badge { margin-top: 2px; background: var(--bg-dark); border: none; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
     .river-icon { font-size: 1.5rem; }
     .river-text { font-size: 0.75rem; line-height: 1.6; color: rgba(255,255,255,0.85); }
     .river-text strong { color: #fff; font-weight: 500; }
- 
- 
+
+
     /* ── PRODUCTOS ── */
     #productos { background: #1a1a1a; position: relative; }
     .productos-header { max-width: 1200px; margin: 0 auto 4rem; }
@@ -124,12 +124,12 @@
     .productos-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
     .producto-season { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
     .producto-variedad { font-size: 0.72rem; color: rgba(255,255,255,0.4); font-style: italic; margin-bottom: 0.75rem; line-height: 1.4; }
- 
+
     .producto-card { background: #1e1e1e; border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem 2rem; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; cursor: default; position: relative; overflow: hidden; }
     .producto-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--green); transform: scaleX(0); transition: transform 0.3s; }
     .producto-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
     .producto-card:hover::before { transform: scaleX(1); }
- 
+
     .producto-emoji { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
     .producto-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: #fff; margin-bottom: 0.5rem; }
     .producto-tag { display: inline-block; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.15); padding: 0.25rem 0.75rem; margin-bottom: 1rem; }
@@ -137,7 +137,7 @@
     .card-img-wrap { height: 200px; overflow: hidden; margin: -2.5rem -2rem 1.5rem -2rem; position: relative; }
     .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
     .producto-card:hover .card-img-wrap img { transform: scale(1.04); }
- 
+
     /* ── LIGHTBOX ── */
     .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; }
     .lightbox.open { display: flex; }
@@ -152,7 +152,7 @@
     .lightbox-dots { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; }
     .lightbox-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.2s; }
     .lightbox-dot.active { background: #fff; }
- 
+
     /* ── CARRUSEL ── */
     .carousel { position: relative; height: 200px; overflow: hidden; margin: -2.5rem -2rem 1.5rem -2rem; }
     .carousel-track { display: flex; height: 100%; transition: transform 0.4s ease; }
@@ -165,7 +165,7 @@
     .carousel-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.45); transition: background 0.2s; }
     .carousel-dot.active { background: #fff; }
     .card-img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, #1e1e1e); }
- 
+
     /* tomates row */
     .tomates-section { max-width: 1200px; margin: 2px auto 0; }
     .tomates-label { background: #fff; border: 1px solid var(--border); border-bottom: none; padding: 1rem 2rem; font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--green); }
@@ -175,7 +175,7 @@
     .tomate-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--text); margin-bottom: 0.4rem; }
     .tomate-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
     .tomate-dot { width: 12px; height: 12px; border-radius: 50%; margin-bottom: 1rem; }
- 
+
     /* ── CONTACTO ── */
     #contacto { background: var(--bg-dark); position: relative; overflow: hidden; }
     #contacto::after { content: 'G'; position: absolute; bottom: -3rem; right: -2rem; font-family: 'Cormorant Garamond', serif; font-size: 20rem; font-weight: 300; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; }
@@ -199,13 +199,13 @@
     .contacto-data { margin-top: 3rem; display: flex; gap: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
     .data-item { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
     .data-item strong { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.4rem; font-weight: 400; }
- 
+
     /* ── FOOTER ── */
     footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2.5rem 4rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
     .footer-logo { display: flex; align-items: center; justify-self: start; }
     .footer-logo img { height: 32px; width: auto; }
     .footer-copy { font-size: 0.65rem; letter-spacing: 0.15em; color: var(--muted); justify-self: end; text-align: right; }
- 
+
     .variedades-toggle { display: flex; align-items: center; gap: 0.5rem; margin-top: 1.2rem; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a84c; cursor: pointer; }
     #variedades-arrow { transition: transform 0.35s ease; }
     #variedades-arrow.open { transform: rotate(180deg); }
@@ -216,7 +216,7 @@
     .variedad-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 0.3rem; }
     .variedad-nombre { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; color: #fff; margin-bottom: 0.2rem; }
     .variedad-texto { font-size: 0.72rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
- 
+
     /* ── TOMATE EXPANDIDO ── */
     .producto-card--tomato { cursor: pointer; transition: grid-column 0.3s; }
     .producto-card--tomato.expanded { grid-column: 1 / -1; cursor: default; }
@@ -236,7 +236,7 @@
       .tomato-expanded-inner { grid-template-columns: 1fr; height: auto; margin: 0; }
       .variedad-full-img { height: 200px; }
     }
- 
+
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.2rem; }
@@ -257,16 +257,76 @@
       .donde-table .col-detalle { display: none; }
     }
     @media (max-width: 600px) {
-      .nav-logo2 { display: none; }
-      .nav-links { gap: 0.6rem; }
-      .nav-links a { font-size: 0.5rem; letter-spacing: 0.08em; }
-      .nav-left { margin-right: 0.6rem; }
-      .nav-right { margin-left: 0.6rem; }
-      nav { padding: 0.9rem 0.5rem; }
-      nav a img { height: 24px; }
       .productos-grid { grid-template-columns: 1fr; }
       .tomates-grid { grid-template-columns: 1fr; }
       .stat-block { grid-template-columns: 1fr 1fr; }
+    }
+
+
+    @media (max-width: 900px) {
+      .video-wrapper { max-width: 100% !important; margin-left: -2rem !important; margin-right: -2rem !important; }
+    }
+
+    @media (max-width: 900px) {
+      .video-wrapper { max-width: 100% !important; margin-left: -2rem !important; margin-right: -2rem !important; }
+    }
+    /* ── MOBILE NAV HAMBURGER ── */
+    .nav-hamburger { display: none; }
+    @media (max-width: 900px) {
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        grid-template-columns: none;
+      }
+      .nav-left, .nav-right, .nav-logo2 { display: none !important; }
+      .nav-center { order: 1; }
+      nav a img { height: 40px; }
+      .nav-hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 6px;
+        background: none;
+        border: none;
+        order: 2;
+        z-index: 200;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #fff;
+        transition: all 0.3s ease;
+      }
+      .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+      .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .nav-mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: #000;
+        z-index: 150;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+      }
+      .nav-mobile-menu.open { display: flex; }
+      .nav-mobile-menu a {
+        color: rgba(255,255,255,0.85);
+        text-decoration: none;
+        font-size: 1.1rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        transition: color 0.2s;
+      }
+      .nav-mobile-menu a:hover { color: #fff; }
     }
   </style>
   <style>
@@ -299,7 +359,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
- 
+
   <!-- NAV -->
   <nav id="navbar">
     <img src="Logo2.jpeg" alt="Garmonte" class="nav-logo2" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);height:34px;width:34px;object-fit:cover;border-radius:50%;opacity:0.9;">
@@ -312,8 +372,19 @@
       <li><a href="#donde">Dónde</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
- 
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="mobile-menu">
+    <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
+    <a href="#productos" onclick="closeMenu()">Productos</a>
+    <a href="#donde" onclick="closeMenu()">Dónde</a>
+    <a href="#contacto" onclick="closeMenu()">Contacto</a>
+  </div>
+
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg">
@@ -335,10 +406,10 @@
       <a href="#productos" class="hero-cta">Descubrir el producto</a>
     </div>
   </section>
- 
+
   <!-- DIVIDER -->
   <div class="divider"><div class="divider-icon">✦</div></div>
- 
+
   <!-- QUIÉNES SOMOS -->
   <section id="nosotros">
   <div class="nosotros-grid">
@@ -348,21 +419,21 @@
       
       <div class="historia-carousel">
         <div class="historia-track" id="historia-track">
- 
+
           <div class="historia-slide">
             <p>La trayectoria de <strong>Garmonte</strong> se remonta a <strong>1950</strong> en la vega de <strong>Villa del Prado</strong>, una zona de tradición agrícola por excelencia. Desde los inicios, la especialidad se centró en el cultivo de tomates, siendo los primeros de la zona centro en llegar a Madrid. En aquella época, el producto se transportaba en carros hasta la estación para viajar en tren con destino al antiguo mercado de <strong>Legazpi</strong>, estableciendo desde entonces un compromiso con la frescura que hoy se mantiene intacto.</p>
             <p>A partir de <strong>1980</strong>, la incorporación de invernaderos permitió profesionalizar los cultivos sin perder la esencia del trabajo artesanal. Hoy, en su <strong>3ª generación</strong>, Garmonte es un referente de liderazgo compartido y conciliación en el mundo rural. Con una gestión logística propia, la empresa ha evolucionado hacia un modelo donde la presencia femenina es clave en todas las áreas, desde el cultivo hasta el transporte pesado.</p>
             <p>El factor diferencial es su ubicación y su método. La huerta se nutre de las aguas limpias del <strong>Río Alberche</strong>, procedentes de la <strong>Sierra de Gredos</strong>, en un microclima excepcional. Sobre este entorno privilegiado, aplicamos una agricultura de precisión: utilizamos sensores de humedad para un riego inteligente y sustituimos los químicos por control biológico con insectos auxiliares.</p>
           </div>
- 
+
           <div class="historia-slide">
             <p>Detrás de cada surco de tierra de Garmonte hay una mujer que lo hizo posible. Nuestra abuela fue una de esas mujeres que, en una época en la que el campo era cosa de hombres, se levantaba antes del amanecer para trabajar la huerta sin descuidar ni un solo día a sus hijos. Con las manos en la tierra y los niños a su lado, aprendió a sacar adelante la familia con lo que la vega del <strong>Río Alberche</strong> le daba.</p>
             <p>No había máquinas, ni sensores, ni logística propia. Solo constancia, conocimiento del terreno y el orgullo silencioso de quien sabe que está haciendo algo que vale la pena. Ella no lo llamaba agricultura de precisión — lo llamaba cuidar lo suyo. Y ese cuidado es el que, generación tras generación, sigue vivo en cada tomate que sale de Villa del Prado.</p>
           </div>
- 
+
         </div>
       </div>
- 
+
       <div class="historia-nav">
         <button class="historia-nav-btn" onclick="moveHistoria(-1)">
           <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="8,2 4,6 8,10"/></svg>
@@ -373,7 +444,7 @@
         </button>
       </div>
     </div>
- 
+
     <div class="nosotros-right">
       <div class="stat-block">
         <div class="stat">
@@ -413,31 +484,31 @@
       </div>
     </div>
   </div>
- 
-  <div style="max-width: 900px; margin: 60px auto 0; text-align: center; border-top: 1px solid #eee; padding-top: 10px;">
+
+    <div style="max-width: 900px; margin: 60px auto 0; text-align: center; border-top: 1px solid #eee; padding-top: 10px;">
     <p style="font-style: italic; font-size: 1.25rem; color: #333; line-height: 1.6;">
-      "Ese mismo producto que hace décadas llegaba en tren a Legazpi, es el que hoy sigue presente cada mañana en Madrid. Una combinación de sostenibilidad digital y herencia agrícola."
+      "Ese mismo producto que hace d&eacute;cadas llegaba en tren a Legazpi, es el que hoy sigue presente cada ma&ntilde;ana en Madrid. Una combinaci&oacute;n de sostenibilidad digital y herencia agr&iacute;cola."
     </p>
   </div>
- 
-  <div style="margin: 50px auto 0; max-width: 70%; position: relative;">
+
+  <div class="video-wrapper" style="margin: 50px auto 0; max-width: 70%; position: relative;">
     <p style="font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: #999; margin-bottom: 1.2rem; text-align: center;">Garmonte en MercaMadrid</p>
     <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1191842014?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="MASTER BUENAS COSTUMBRES SUBT"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
   </div>
 </section>
- 
+
   <!-- DIVIDER -->
-  <div class="divider"><div class="divider-icon">✦</div></div>
- 
+  <div class="divider"><div class="divider-icon">&#10022;</div></div>
+
   <!-- PRODUCTOS -->
   <section id="productos">
     <div class="productos-header">
       <p class="section-label">Nuestros productos</p>
       <h2 class="section-title">Garmonte<br><em>La Huerta de Madrid</em></h2>
     </div>
- 
+
     <div class="productos-grid">
- 
+
       <div class="producto-card">
         <div class="carousel" id="carousel-moresco">
           <div class="carousel-track" id="carousel-moresco-track" onclick="openLightboxImages(['Moresco1.jpeg','Moresco2.jpeg','Moresco3.jpeg','Moresco4.jpeg'], carouselState['moresco']||0)" style="cursor:zoom-in;">
@@ -461,7 +532,7 @@
         <span class="producto-tag" style="background: rgba(201,168,76,0.1);">Producto estrella</span>
         <p class="producto-desc">Pulpa carnosa y firme con equilibrio perfecto entre dulzor y acidez. Recupera el aroma tradicional del tomate auténtico. Sin exceso de agua, la elección predilecta para la alta cocina y paladares exigentes.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="carousel" id="carousel-marmalindo">
           <div class="carousel-track" id="carousel-marmalindo-track" onclick="openLightboxImages(['Marmalindo1.jpeg','Marmalindo2.jpeg','Marmalindo3.jpeg'], carouselState['marmalindo']||0)" style="cursor:zoom-in;">
@@ -483,7 +554,7 @@
         <span class="producto-tag" style="background: rgba(201,168,76,0.1);">Producto estrella</span>
         <p class="producto-desc">Piel brillante y surcos marcados que lo convierten en el protagonista de cualquier mesa. Vida útil prolongada y sabor auténtico para mercados que demandan un producto visualmente atractivo.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="carousel" id="carousel-caramba">
           <div class="carousel-track" id="carousel-caramba-track" onclick="openLightboxImages(['Caramba1.jpeg','Caramba2.jpeg'], carouselState['caramba']||0)" style="cursor:zoom-in;">
@@ -503,7 +574,7 @@
         <span class="producto-tag" style="background: rgba(201,168,76,0.1);">Producto estrella</span>
         <p class="producto-desc">El todo terreno de la cocina. Carne firme para ensaladas, dulzor profundo para gazpachos y resistencia excepcional en la despensa. Rojo intenso que aguanta sin ablandarse, siempre como recién cogido de la mata.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="carousel" id="carousel-pepino">
           <div class="carousel-track" id="carousel-pepino-track" onclick="openLightboxImages(['Pepino1.jpeg','Pepino2.jpeg','Pepino3.jpeg'], carouselState['pepino']||0)" style="cursor:zoom-in;">
@@ -524,7 +595,7 @@
         <div class="producto-variedad">Pepino corto Urano</div>
         <p class="producto-desc">Mordida firme y crujiente que mantiene la sensación de recién recolectado durante días. Pipas de tamaño mínimo para una presencia premium en ensaladas gourmet. Resistente al transporte sin perder calidad.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="carousel" id="carousel-cebolleta">
           <div class="carousel-track" id="carousel-cebolleta-track" onclick="openLightboxImages(['Cebolleta1.jpeg','Cebolleta2.jpeg','Cebolleta3.jpeg'], carouselState['cebolleta']||0)" style="cursor:zoom-in;">
@@ -545,7 +616,7 @@
         <div class="producto-variedad">Virgim de bulbo</div>
         <p class="producto-desc">Sabor suave y textura crujiente, perfecta para consumir en crudo o como base de sofritos gourmet. Piel sedosa de limpieza rápida y gran aguante para que llegue a tu cocina con todo su aroma.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="card-img-wrap" onclick="openLightboxImages(['Calabacin1.jpeg'],0)" style="cursor:zoom-in;"><img src="Calabacin1.jpeg" alt="Calabacín Garmonte"></div>
         <div class="producto-season">Sep — Oct</div>
@@ -553,7 +624,7 @@
         <div class="producto-variedad">Mástil · Presentación de lujo</div>
         <p class="producto-desc">Forma perfectamente estilizada y brillo natural que destaca en el punto de venta. Versátil en el campo y en la cocina, con una larga vida útil que garantiza máxima frescura hasta la mesa.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="card-img-wrap" onclick="openLightboxImages(['Repollo1.jpeg'],0)" style="cursor:zoom-in;"><img src="Repollo1.jpeg" alt="Repollo Garmonte"></div>
         <div class="producto-season">Dic — Ene</div>
@@ -561,7 +632,7 @@
         <div class="producto-variedad">Semirizado · Textura gourmet</div>
         <p class="producto-desc">Hoja abullonada que atrapa mejor los aderezos en ensaladas y aporta presencia visual superior en guisos. Variedad densa y pesada con excelente rendimiento en cocina, siempre con color vibrante y frescura.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="card-img-wrap" onclick="openLightboxImages(['Acelga1.jpeg'],0)" style="cursor:zoom-in;"><img src="Acelga1.jpeg" alt="Acelga Garmonte"></div>
         <div class="producto-season">Dic — Feb</div>
@@ -569,7 +640,7 @@
         <div class="producto-variedad">Penca ancha · Charly Roja</div>
         <p class="producto-desc">Penca ancha para aprovechamiento total: hojas perfectas para guisos suaves y pencas tiernas ideales para rebozar o al vapor. La variedad Charly aporta tallo carmín y sabor delicado para ensaladas y salteados gourmet.</p>
       </div>
- 
+
       <div class="producto-card">
         <div class="card-img-wrap" onclick="openLightboxImages(['Lechuga1.jpeg'],0)" style="cursor:zoom-in;"><img src="Lechuga1.jpeg" alt="Lechuga Garmonte"></div>
         <div class="producto-season">Dic — Feb</div>
@@ -577,21 +648,21 @@
         <div class="producto-variedad">Batavia</div>
         <p class="producto-desc">Estructura abierta pero compacta en el corazón que retiene mejor los aliños. Resistencia natural para llegar a la mesa con toda su frescura. Todoterreno, elegante en la cocina gourmet.</p>
       </div>
- 
+
     </div>
- 
+
   </section>
- 
+
   <!-- DIVIDER -->
   <div class="divider"><div class="divider-icon">✦</div></div>
- 
+
   <!-- DONDE ENCONTRARNOS -->
   <section id="donde">
     <div class="donde-header">
       <p class="section-label">Distribución</p>
       <h2 class="section-title">Dónde<br><em>encontrarnos</em></h2>
     </div>
- 
+
     <div class="donde-canales">
       <!-- MERCAMADRID -->
       <div class="donde-canal">
@@ -608,7 +679,7 @@
           </tbody>
         </table>
       </div>
- 
+
       <!-- TIENDAS Y RESTAURANTES -->
       <div class="donde-canal">
         <h3>Tiendas &amp; Restaurantes</h3>
@@ -626,20 +697,20 @@
         </table>
       </div>
     </div>
- 
+
     <!-- MAPA -->
     <div id="donde-mapa"></div>
   </section>
- 
+
   <!-- DIVIDER -->
   <div class="divider"><div class="divider-icon">✦</div></div>
- 
+
   <!-- CONTACTO -->
   <section id="contacto">
     <div class="contacto-inner">
       <h2 class="section-title">¿Buscas producto<br><em>de verdad?</em></h2>
       <p class="contacto-intro">Si eres restaurante, tienda especializada o distribuidor y quieres conocer nuestra oferta de temporada, escríbenos. Nos ponemos en contacto contigo en menos de 24h.</p>
- 
+
       <form class="contacto-form" name="contacto" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contacto" />
         <p style="display:none;"><input name="bot-field" /></p>
@@ -673,7 +744,7 @@
           <button type="submit" class="btn-submit">Enviar consulta</button>
         </div>
       </form>
- 
+
       <div class="contacto-data">
         <div class="data-item">
           <strong>Ubicación</strong>
@@ -690,7 +761,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
@@ -708,7 +779,7 @@
     </a>
     <div class="footer-copy">© 2025 Garmonte · Verduras y Hortalizas · Madrid</div>
   </footer>
- 
+
   <script>
     // Hero carrusel
     let heroIndex = 0;
@@ -729,7 +800,7 @@
     }
     function goHero(i) { heroIndex = i; updateHero(); resetHeroTimer(); }
     resetHeroTimer();
- 
+
     let fotosIndex = 0;
     function moveFotos(dir) {
       fotosIndex = (fotosIndex + dir + 2) % 2;
@@ -737,7 +808,7 @@
       document.getElementById('fotos-dot-0').style.background = fotosIndex === 0 ? '#333' : 'rgba(0,0,0,0.25)';
       document.getElementById('fotos-dot-1').style.background = fotosIndex === 1 ? '#333' : 'rgba(0,0,0,0.25)';
     }
- 
+
     let historiaIndex = 0;
     const historiaTotalSlides = 2;
     function moveHistoria(dir) {
@@ -745,13 +816,13 @@
       document.getElementById('historia-track').style.transform = 'translateX(-' + (historiaIndex * 100) + '%)';
       document.getElementById('historia-label').textContent = (historiaIndex + 1) + ' / ' + historiaTotalSlides;
     }
- 
+
     // Navbar scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
- 
+
     // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -761,14 +832,14 @@
         }
       });
     }, { threshold: 0.1 });
- 
+
     document.querySelectorAll('.producto-card, .tomate-card, .stat, .river-badge').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(el);
     });
- 
+
     // Carrusel
     const carouselState = {};
     function moveCarousel(id, dir, e) {
@@ -784,7 +855,7 @@
       }
     }
   </script>
- 
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const gmap = L.map('donde-mapa', { scrollWheelZoom: false, zoomControl: true }).setView([40.37, -3.95], 10);
@@ -792,39 +863,39 @@
       attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
       maxZoom: 19
     }).addTo(gmap);
- 
+
     const pop = (n, d) => '<div class="gm-popup-name">' + n + '</div><div class="gm-popup-detail">' + d + '</div>';
- 
+
     const tomatoIcon = L.divIcon({ className: '', html: '<div style="font-size:22px;line-height:1;">🍅</div>', iconSize: [24, 24], iconAnchor: [12, 12], popupAnchor: [0, -14] });
     const huertoIcon = L.divIcon({ className: '', html: '<div style="font-size:28px;line-height:1;">🌱</div>', iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -16] });
- 
+
     // MercaMadrid — Ctra. Villaverde a Vallecas km 3,8
     L.marker([40.3504, -3.6715], {icon: tomatoIcon}).addTo(gmap).bindPopup(pop('MercaMadrid', 'Nave A: Bargueño · Nave B: Berenger y Centrimerca<br>Nave C: Iberfrupa · Nave E: Alomar<br>Ctra. Villaverde a Vallecas, km 3,8 · 28053 Madrid'));
- 
+
     // El Qüenco de Pepa — C/ Henri Dunant 21, Chamartín
     L.marker([40.4587, -3.6887], {icon: tomatoIcon}).addTo(gmap).bindPopup(pop('El Qüenco de Pepa', 'Restaurante · C/ Henri Dunant, 21 · Chamartín'));
- 
+
     // Efecto Fruta / Fruteros La Vaguada — C.C. La Vaguada
     L.marker([40.4815, -3.7023], {icon: tomatoIcon}).addTo(gmap).bindPopup(pop('Efecto Fruta — La Vaguada', 'Av. Monforte de Lemos, 36 · C.C. La Vaguada · 28029 Madrid'));
- 
+
     // Infinita Eva — C/ Vallehermoso 74, Chamberí
     L.marker([40.4382, -3.7063], {icon: tomatoIcon}).addTo(gmap).bindPopup(pop('Infinita Eva', 'C/ Vallehermoso, 74 · Chamberí · 28015 Madrid'));
- 
+
     // Mercado de Maravillas — C/ Bravo Murillo 122
     L.marker([40.4568, -3.7018], {icon: tomatoIcon}).addTo(gmap).bindPopup(pop('Mercado de Maravillas', 'C/ Bravo Murillo, 122 · Cuatro Caminos · 28020 Madrid'));
- 
+
     // Frutas Disfruta — Móstoles
     L.marker([40.3228, -3.8652], {icon: tomatoIcon}).addTo(gmap).bindPopup(pop('Frutas Disfruta', 'C/ Alfonso XII, 2 · Móstoles'));
- 
+
     // Disfruta del Día — Moncloa-Aravaca
     L.marker([40.4523, -3.7387], {icon: tomatoIcon}).addTo(gmap).bindPopup(pop('Disfruta del Día', 'C/ San Gerardo, 8 · Moncloa-Aravaca'));
- 
+
     // Villa del Prado — origen de la huerta
     L.marker([40.276, -4.296], {icon: huertoIcon}).addTo(gmap)
       .bindPopup('<div class="gm-popup-name" style="color:#b87a0a;">Huerta Garmonte</div><div class="gm-popup-detail">Villa del Prado · Río Alberche</div>')
       .openPopup();
   </script>
- 
+
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
     <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
@@ -835,11 +906,11 @@
     <button class="lightbox-btn next" onclick="moveLightbox(1)">&#8250;</button>
     <div class="lightbox-dots" id="lightbox-dots"></div>
   </div>
- 
+
   <script>
     let lbImages = [];
     let lbIndex = 0;
- 
+
     function openLightboxImages(images, startIndex) {
       lbImages = images;
       lbIndex = startIndex || 0;
@@ -874,7 +945,19 @@
       if (e.key === 'Escape') closeLightbox();
     });
   </script>
- 
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobile-menu').classList.toggle('open');
+      document.body.style.overflow = document.getElementById('mobile-menu').classList.contains('open') ? 'hidden' : '';
+    }
+    function closeMenu() {
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
 </body>
 </html>
- 
