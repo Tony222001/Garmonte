@@ -272,6 +272,7 @@
     }
     /* ── MOBILE NAV HAMBURGER ── */
     .nav-hamburger { display: none; }
+    .nav-mobile-menu { display: none; }
     @media (max-width: 900px) {
       nav {
         display: flex;
@@ -307,26 +308,32 @@
       .nav-mobile-menu {
         display: none;
         position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
+        top: 64px;
+        left: 0;
+        right: 0;
         background: #000;
-        z-index: 150;
+        z-index: 99;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
+        padding: 0.5rem 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
       }
       .nav-mobile-menu.open { display: flex; }
       .nav-mobile-menu a {
-        color: rgba(255,255,255,0.85);
+        color: rgba(255,255,255,0.8);
         text-decoration: none;
-        font-size: 1.1rem;
-        letter-spacing: 0.3em;
+        font-size: 0.75rem;
+        letter-spacing: 0.25em;
         text-transform: uppercase;
         font-family: 'Montserrat', sans-serif;
         font-weight: 300;
-        transition: color 0.2s;
+        padding: 1.1rem 2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        transition: color 0.2s, background 0.2s;
       }
-      .nav-mobile-menu a:hover { color: #fff; }
+      .nav-mobile-menu a:last-child { border-bottom: none; }
+      .nav-mobile-menu a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+      .video-wrapper { max-width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
     }
   </style>
   <style>
