@@ -4,7 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Garmonte — Verduras y Hortalizas</title>
+  <meta name="description" content="Garmonte, proveedor mayorista de tomates y hortalizas Km 0 desde Villa del Prado, Madrid. Distribuimos en MercaMadrid y a restaurantes y tiendas especializadas desde 1950." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Garmonte",
+    "description": "Productor y distribuidor mayorista de tomates y hortalizas Km 0 desde Villa del Prado, Madrid. Especialistas en tomate Moresco, Marmalindo y Caramba para restaurantes y distribuidores.",
+    "url": "https://garmonte.es",
+    "logo": "https://garmonte.es/Logo1.jpeg",
+    "foundingDate": "1950",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Villa del Prado",
+      "addressRegion": "Madrid",
+      "addressCountry": "ES"
+    },
+    "sameAs": ["https://www.instagram.com/garmonte"],
+    "servesCuisine": "Horticultura",
+    "priceRange": "$$"
+  }
+  </script>
   <style>
     :root {
       --bg:      #ffffff;
@@ -511,7 +532,6 @@
     <div class="productos-header">
       <p class="section-label">Nuestros productos</p>
       <h2 class="section-title">Garmonte<br><em>La Huerta de Madrid</em></h2>
-      <p style="max-width:600px;margin:1.2rem auto 0;font-size:0.8rem;color:#777;letter-spacing:0.05em;line-height:1.8;">Proveedor de tomates y hortalizas Km 0 para restaurantes y distribuidores en Madrid. Distribución mayorista directa a MercaMadrid y hostelería.</p>
     </div>
 
     <div class="productos-grid">
@@ -716,41 +736,16 @@
   <section id="contacto">
     <div class="contacto-inner">
       <h2 class="section-title">¿Buscas producto<br><em>de verdad?</em></h2>
-      <p class="contacto-intro">Si eres restaurante, tienda especializada o distribuidor y quieres conocer nuestra oferta de temporada, escríbenos. Nos ponemos en contacto contigo en menos de 24h.</p>
+      <p class="contacto-intro">Si eres restaurante, tienda especializada o distribuidor y quieres conocer nuestra oferta de temporada, escríbenos por Instagram o llámanos. Nos ponemos en contacto contigo en menos de 24h.</p>
 
-      <form class="contacto-form" name="contacto" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contacto" />
-        <p style="display:none;"><input name="bot-field" /></p>
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" name="nombre" placeholder="Tu nombre" required />
-        </div>
-        <div class="form-group">
-          <label>Empresa</label>
-          <input type="text" name="empresa" placeholder="Nombre del negocio" />
-        </div>
-        <div class="form-group">
-          <label>Tipo de negocio</label>
-          <select name="tipo">
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option>Restaurante / Hostelería</option>
-            <option>Tienda especializada</option>
-            <option>Distribuidor</option>
-            <option>Otro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email" placeholder="tu@email.com" required />
-        </div>
-        <div class="form-group full">
-          <label>Mensaje</label>
-          <textarea name="mensaje" placeholder="Cuéntanos qué producto te interesa y en qué volúmenes aproximados..."></textarea>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn-submit">Enviar consulta</button>
-        </div>
-      </form>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1.2rem;margin:2.5rem 0;">
+        <a href="https://instagram.com/garmonte" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:0.7rem;padding:0.9rem 2.5rem;background:#fff;color:#1a1a1a;border:1px solid #333;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;"
+           onmouseover="this.style.background='#1a1a1a';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='#1a1a1a'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          Escribir por Instagram
+        </a>
+      </div>
 
       <div class="contacto-data">
         <div class="data-item">
@@ -907,7 +902,7 @@
   <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
     <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
     <div class="lightbox-img-wrap">
-      <img id="lightbox-img" src="" alt="">
+      <img id="lightbox-img" src="" alt="Producto Garmonte — Verduras y Hortalizas de Madrid">
     </div>
     <button class="lightbox-btn prev" onclick="moveLightbox(-1)">&#8249;</button>
     <button class="lightbox-btn next" onclick="moveLightbox(1)">&#8250;</button>
