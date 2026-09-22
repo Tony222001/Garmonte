@@ -224,7 +224,7 @@
     @keyframes scrollcue { 0% { transform: scaleY(0); transform-origin: top; opacity: 0; } 40% { transform: scaleY(1); transform-origin: top; opacity: 1; } 60% { transform: scaleY(1); transform-origin: bottom; opacity: 1; } 100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; } }
 
     .hero-ticker { position: relative; z-index: 2; border-top: 1px solid rgba(255,255,255,0.12); overflow: hidden; padding: 1.1rem 0; }
-    .hero-ticker-track { display: flex; width: max-content; gap: 3rem; animation: tickerScroll 32s linear infinite; }
+    .hero-ticker-track { display: flex; width: max-content; gap: 3rem; animation: tickerScroll 32s linear infinite; will-change: transform; }
     .hero-ticker-track span { font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.55); white-space: nowrap; display: flex; align-items: center; gap: 3rem; }
     .hero-ticker-track span::after { content: '◆'; font-size: 0.5rem; color: rgba(255,255,255,0.3); }
     @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -409,6 +409,7 @@
     .nav-hamburger { display: none; }
     .nav-mobile-menu { display: none; }
     @media (max-width: 900px) {
+      .hero-slide { animation: none; transform: scale(1.04); }
       nav { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.5rem; grid-template-columns: none; }
       .nav-left, .nav-right { display: none !important; }
       .nav-hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; z-index: 220; }
@@ -946,12 +947,15 @@
   <script>
     /* ── Cursor light + scroll progress ── */
     const cursorLight = document.getElementById('cursor-light');
-    window.addEventListener('pointermove', (e) => {
-      cursorLight.style.setProperty('--mx', e.clientX + 'px');
-      cursorLight.style.setProperty('--my', e.clientY + 'px');
-      cursorLight.classList.add('active');
-    });
-    document.addEventListener('mouseleave', () => cursorLight.classList.remove('active'));
+    const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (hasFinePointer) {
+      window.addEventListener('pointermove', (e) => {
+        cursorLight.style.setProperty('--mx', e.clientX + 'px');
+        cursorLight.style.setProperty('--my', e.clientY + 'px');
+        cursorLight.classList.add('active');
+      });
+      document.addEventListener('mouseleave', () => cursorLight.classList.remove('active'));
+    }
 
     const progressBar = document.getElementById('scroll-progress');
     function updateProgress() {
@@ -1010,13 +1014,15 @@
 
     const heroMedia = document.getElementById('hero-media');
     const heroSection = document.getElementById('hero');
-    heroSection.addEventListener('pointermove', (e) => {
-      const r = heroSection.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      heroMedia.style.transform = `translate(${px * -14}px, ${py * -10}px)`;
-    });
-    heroSection.addEventListener('pointerleave', () => { heroMedia.style.transform = 'translate(0,0)'; });
+    if (hasFinePointer) {
+      heroSection.addEventListener('pointermove', (e) => {
+        const r = heroSection.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        heroMedia.style.transform = `translate(${px * -14}px, ${py * -10}px)`;
+      });
+      heroSection.addEventListener('pointerleave', () => { heroMedia.style.transform = 'translate(0,0)'; });
+    }
 
     /* ── Historia carrusel ── */
     let historiaIndex = 0;
