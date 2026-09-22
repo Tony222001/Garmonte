@@ -243,8 +243,8 @@
     #nosotros { background: var(--bg); }
     .nosotros-grid { max-width: 1220px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
     .nosotros-text p { margin-top: 1.4rem; font-size: 0.98rem; line-height: 1.9; color: var(--ink-dim); font-weight: 300; max-width: 60ch; }
-    .historia-carousel { position: relative; overflow: hidden; margin-top: 2.2rem; }
-    .historia-track { display: flex; transition: transform 0.5s var(--ease); }
+    .historia-carousel { position: relative; overflow: hidden; margin-top: 2.2rem; transition: height 0.4s var(--ease); }
+    .historia-track { display: flex; align-items: flex-start; transition: transform 0.5s var(--ease); }
     .historia-slide { min-width: 100%; }
     .historia-nav { display: flex; align-items: center; gap: 1rem; margin-top: 1.8rem; }
     .historia-nav-btn { background: none; border: 1px solid var(--line); width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.25s, background 0.25s, color 0.25s; color: var(--ink); }
@@ -294,6 +294,7 @@
     .mes-chip.active { background: var(--ink); border-color: var(--ink); color: #0a0a0a; }
     .mes-filtro-empty { display: none; margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); font-style: italic; }
     .mes-filtro-empty.show { display: block; }
+    .productos-scroll-hint { display: none; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin: -1.5rem 0 1.5rem; }
     .producto-card.mes-oculto { display: none; }
     .productos-grid { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: auto; grid-auto-flow: dense; gap: 2px; align-items: stretch; }
 
@@ -424,8 +425,23 @@
 
       section { padding: 5.5rem 1.6rem; }
       .nosotros-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .productos-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
-      .producto-media { min-height: 200px; }
+      .productos-scroll-hint { display: block; }
+      .productos-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 1.6rem;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        margin: 0 -1.6rem;
+        padding: 0 1.6rem 0.5rem;
+        max-width: none;
+        scrollbar-width: none;
+      }
+      .productos-grid::-webkit-scrollbar { display: none; }
+      .producto-card { scroll-snap-align: start; flex: 0 0 78%; min-width: 78%; }
+      .producto-media { min-height: 240px; }
       .contacto-actions { align-items: center; }
       footer { grid-template-columns: 1fr; justify-items: center; gap: 1rem; padding: 2.2rem 1.5rem; text-align: center; }
       .footer-wordmark, .footer-copy { justify-self: center; text-align: center; }
@@ -437,7 +453,7 @@
       .hero-title { font-size: clamp(2.6rem, 13vw, 4.5rem); }
     }
     @media (max-width: 560px) {
-      .productos-grid { grid-template-columns: 1fr; }
+      .producto-card { flex-basis: 84%; min-width: 84%; }
       .stat-block { grid-template-columns: 1fr 1fr; }
     }
 
@@ -531,8 +547,11 @@
 
           <div class="historia-slide">
             <p>La trayectoria de <strong>Garmonte</strong> se remonta a <strong>1950</strong> en la vega de <strong>Villa del Prado</strong>, una zona de tradición agrícola por excelencia. Desde los inicios, la especialidad se centró en el cultivo de tomates, siendo los primeros de la zona centro en llegar a Madrid. En aquella época, el producto se transportaba en carros hasta la estación para viajar en tren con destino al antiguo mercado de <strong>Legazpi</strong>, estableciendo desde entonces un compromiso con la frescura que hoy se mantiene intacto.</p>
-            <p>A partir de <strong>1980</strong>, la incorporación de invernaderos permitió profesionalizar los cultivos sin perder la esencia del trabajo artesanal. Hoy, en su <strong>3ª generación</strong>, Garmonte es un referente de liderazgo compartido y conciliación en el mundo rural. Con una gestión logística propia, la empresa ha evolucionado hacia un modelo donde la presencia femenina es clave en todas las áreas, desde el cultivo hasta el transporte pesado.</p>
-            <p>El factor diferencial es su ubicación y su método. La huerta se nutre de las aguas limpias del <strong>Río Alberche</strong>, procedentes de la <strong>Sierra de Gredos</strong>, en un microclima excepcional. Sobre este entorno privilegiado, aplicamos una agricultura de precisión: utilizamos sensores de humedad para un riego inteligente y sustituimos los químicos por control biológico con insectos auxiliares.</p>
+          </div>
+
+          <div class="historia-slide">
+            <p>A partir de <strong>1980</strong>, la incorporación de invernaderos permitió profesionalizar los cultivos sin perder la esencia del trabajo artesanal. Hoy, en su <strong>3ª generación</strong>, Garmonte es un referente de liderazgo compartido y conciliación en el mundo rural.</p>
+            <p>El factor diferencial es su ubicación y su método. La huerta se nutre de las aguas limpias del <strong>Río Alberche</strong>, procedentes de la <strong>Sierra de Gredos</strong>, en un microclima excepcional. Aplicamos una agricultura de precisión: sensores de humedad para riego inteligente y control biológico con insectos auxiliares en lugar de químicos.</p>
           </div>
 
           <div class="historia-slide">
@@ -547,7 +566,7 @@
         <button class="historia-nav-btn" onclick="moveHistoria(-1)" aria-label="Historia anterior">
           <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="8,2 4,6 8,10"/></svg>
         </button>
-        <span class="historia-nav-label" id="historia-label">01 — 02</span>
+        <span class="historia-nav-label" id="historia-label">01 — 03</span>
         <button class="historia-nav-btn" onclick="moveHistoria(1)" aria-label="Historia siguiente">
           <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4,2 8,6 4,10"/></svg>
         </button>
@@ -646,6 +665,8 @@
       </div>
       <p class="mes-filtro-empty" id="mes-filtro-empty">No hay productos de temporada ese mes.</p>
     </div>
+
+    <p class="productos-scroll-hint">Desliza para ver todos →</p>
 
     <div class="productos-grid" id="productos-grid">
 
@@ -1032,12 +1053,20 @@
 
     /* ── Historia carrusel ── */
     let historiaIndex = 0;
-    const historiaTotalSlides = 2;
+    const historiaTotalSlides = 3;
+    const historiaCarousel = document.querySelector('.historia-carousel');
+    const historiaSlides = document.querySelectorAll('.historia-slide');
+    function updateHistoriaHeight() {
+      historiaCarousel.style.height = historiaSlides[historiaIndex].offsetHeight + 'px';
+    }
     function moveHistoria(dir) {
       historiaIndex = (historiaIndex + dir + historiaTotalSlides) % historiaTotalSlides;
       document.getElementById('historia-track').style.transform = 'translateX(-' + (historiaIndex * 100) + '%)';
       document.getElementById('historia-label').textContent = String(historiaIndex + 1).padStart(2,'0') + ' — ' + String(historiaTotalSlides).padStart(2,'0');
+      updateHistoriaHeight();
     }
+    updateHistoriaHeight();
+    window.addEventListener('resize', updateHistoriaHeight);
 
     /* ── Fotos antiguas carrusel ── */
     let fotosIndex = 0;
