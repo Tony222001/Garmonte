@@ -295,16 +295,16 @@
     .mes-filtro-empty { display: none; margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); font-style: italic; }
     .mes-filtro-empty.show { display: block; }
     .producto-card.mes-oculto { display: none; }
-    .productos-grid { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: 340px; grid-auto-flow: dense; gap: 2px; }
+    .productos-grid { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: auto; grid-auto-flow: dense; gap: 2px; align-items: stretch; }
 
     .producto-card { display: flex; flex-direction: column; background: #101010; border: 1px solid var(--line-soft); position: relative; overflow: hidden; transition: border-color 0.3s; }
     .producto-card:hover { border-color: rgba(244,241,234,0.28); }
-    .producto-card.featured { grid-column: span 2; grid-row: span 2; }
+    .producto-card.featured { grid-column: span 2; }
     .producto-card.wide { grid-column: span 2; }
 
-    .producto-media { position: relative; flex: 1; min-height: 0; overflow: hidden; }
-    .producto-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
-    .producto-card:hover .producto-media img { transform: scale(1.045); }
+    .producto-media { position: relative; flex: 1; min-height: 220px; overflow: hidden; }
+    .producto-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+    .producto-card:hover .producto-media > img { transform: scale(1.045); }
     .producto-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 55%); pointer-events: none; }
 
     .producto-info { padding: 1.3rem 1.5rem 1.6rem; flex-shrink: 0; position: relative; z-index: 1; }
@@ -312,7 +312,6 @@
     .producto-season { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
     .producto-tag { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-ink); white-space: nowrap; }
     .producto-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; color: var(--ink); margin-top: 0.35rem; }
-    .featured .producto-name { font-size: 2.1rem; }
     .producto-variedad { font-size: 0.72rem; color: var(--ink-faint); font-style: italic; margin-top: 0.2rem; }
     .producto-desc { font-size: 0.82rem; line-height: 1.65; color: var(--ink-dim); margin-top: 0.6rem; }
     .featured .producto-desc { max-width: 46ch; }
@@ -426,9 +425,11 @@
 
       section { padding: 5.5rem 1.6rem; }
       .nosotros-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .productos-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 240px; }
-      .producto-card.featured { grid-column: span 2; grid-row: span 2; }
+      .productos-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
+      .producto-card.featured { grid-column: span 2; }
       .producto-card.wide { grid-column: span 2; }
+      .producto-media { min-height: 200px; }
+      .featured .producto-media { min-height: 200px; }
       .contacto-actions { align-items: center; }
       footer { grid-template-columns: 1fr; justify-items: center; gap: 1rem; padding: 2.2rem 1.5rem; text-align: center; }
       .footer-wordmark, .footer-copy { justify-self: center; text-align: center; }
@@ -656,7 +657,7 @@
       <div class="producto-card featured" data-season-start="6" data-season-end="10">
         <div class="producto-media">
           <div class="carousel" id="carousel-moresco">
-            <div class="carousel-track" id="carousel-moresco-track">
+            <div class="carousel-track" id="carousel-moresco-track" onclick="openLightboxImages(['Moresco1.jpeg','Moresco2.jpeg','Moresco3.jpeg','Moresco4.jpeg'], carouselState['moresco']||0)" style="cursor:zoom-in;">
               <img src="Moresco1.jpeg" alt="Tomate Moresco Garmonte — tomate gourmet para restaurantes Madrid" loading="lazy">
               <img src="Moresco2.jpeg" alt="Tomate Moresco asurcado Garmonte, alta cocina" loading="lazy">
               <img src="Moresco3.jpeg" alt="Tomate Moresco Garmonte al por mayor, proveedor hostelería" loading="lazy">
@@ -1141,8 +1142,8 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const gmap = L.map('donde-mapa', { scrollWheelZoom: false, zoomControl: true }).setView([40.37, -3.95], 10);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
     }).addTo(gmap);
 
