@@ -299,8 +299,6 @@
 
     .producto-card { display: flex; flex-direction: column; background: #101010; border: 1px solid var(--line-soft); position: relative; overflow: hidden; transition: border-color 0.3s; }
     .producto-card:hover { border-color: rgba(244,241,234,0.28); }
-    .producto-card.featured { grid-column: span 2; }
-    .producto-card.wide { grid-column: span 2; }
 
     .producto-media { position: relative; flex: 1; min-height: 220px; overflow: hidden; }
     .producto-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
@@ -426,10 +424,7 @@
       section { padding: 5.5rem 1.6rem; }
       .nosotros-grid { grid-template-columns: 1fr; gap: 3rem; }
       .productos-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
-      .producto-card.featured { grid-column: span 2; }
-      .producto-card.wide { grid-column: span 2; }
       .producto-media { min-height: 200px; }
-      .featured .producto-media { min-height: 200px; }
       .contacto-actions { align-items: center; }
       footer { grid-template-columns: 1fr; justify-items: center; gap: 1rem; padding: 2.2rem 1.5rem; text-align: center; }
       .footer-wordmark, .footer-copy { justify-self: center; text-align: center; }
@@ -442,7 +437,6 @@
     }
     @media (max-width: 560px) {
       .productos-grid { grid-template-columns: 1fr; }
-      .producto-card.featured, .producto-card.wide { grid-column: span 1; }
       .stat-block { grid-template-columns: 1fr 1fr; }
     }
 
