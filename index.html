@@ -958,17 +958,23 @@
     }
 
     const progressBar = document.getElementById('scroll-progress');
-    function updateProgress() {
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-links a[data-nav]');
+
+    let scrollTicking = false;
+    function onScrollFrame() {
       const h = document.documentElement;
       const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
       progressBar.style.transform = 'scaleX(' + scrolled + ')';
+      navbar.classList.toggle('scrolled', h.scrollTop > 60);
+      scrollTicking = false;
     }
-    window.addEventListener('scroll', updateProgress, { passive: true });
-
-    /* ── Nav scroll state + scrollspy ── */
-    const navbar = document.getElementById('navbar');
-    const navLinks = document.querySelectorAll('.nav-links a[data-nav]');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(onScrollFrame);
+        scrollTicking = true;
+      }
+    }, { passive: true });
 
     const spy = new IntersectionObserver((entries) => {
       entries.forEach(e => {
